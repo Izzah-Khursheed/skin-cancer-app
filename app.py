@@ -67,13 +67,14 @@ with tabs[0]:
             f"""
             <div style='
                 background-color: #28a745;  /* Bootstrap green */
-                padding: 1rem;
-                border-radius: 10px;
+                padding: 1.5rem;
+                border-radius: 12px;
                 color: white;
-                font-size: 1.5rem;
-                font-weight: bold;
+                font-size: 2.2rem;
+                font-weight: 800;
                 text-align: center;
-                margin-top: 1rem;
+                margin-top: 1.5rem;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
             '>
                 ✅ Predicted: {full_prediction_name}
             </div>
