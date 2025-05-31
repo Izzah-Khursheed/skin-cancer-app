@@ -48,18 +48,30 @@ with tabs[0]:
     if uploaded_file is not None:
         image = Image.open(uploaded_file).convert("RGB")
         st.image(image, caption="Uploaded Image", use_container_width=True)
-        st.write("🔍 Making prediction...")
+
+        # Placeholder for loading message
+        loading_message = st.empty()
+        loading_message.write("🔍 Making prediction...")
 
         # Run prediction
         prediction, confidences, risk_score = predict_skin_cancer(uploaded_file)
 
+        # Clear loading message
+        loading_message.empty()
+
         # Display full name but store short label
         full_prediction_name = label_to_name.get(prediction, prediction)
 
-        st.success(f"Predicted: {full_prediction_name}")
-        st.write("Confidence Scores:", {
-            label_to_name.get(k, k): round(v, 2) for k, v in confidences.items()
-        })
+        # st.success(f"Predicted: {full_prediction_name}")
+        st.markdown(
+            f"<h2 style='color: green;'>✅ Predicted: {full_prediction_name}</h2>",
+            unsafe_allow_html=True
+        )
+
+        st.markdown("#### 📊 Confidence Scores")
+        for label, conf in confidences.items():
+            st.write(f"- **{label_to_name.get(label, label)}**: {conf:.2f}%")
+
 
         # Store ORIGINAL prediction key
         st.session_state['last_prediction'] = prediction
