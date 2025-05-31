@@ -8,7 +8,7 @@ def get_treatment_info(cancer_type):
             "treatment": "Laser therapy (e.g., pulsed dye laser), sclerotherapy, or surgical excision depending on severity.",
             "precautions": "Avoid heat and sun exposure, and consult a specialist if there’s bleeding or rapid growth."
         },
-        "Actinic Keratoses / Bowen's Disease": {
+        "Actinic Keratoses and Intraepithelial Carcinoma (Bowen's Disease)": {
             "treatment": "Cryotherapy, topical chemotherapy (5-FU), photodynamic therapy, or surgical excision.",
             "precautions": "Avoid UV exposure, wear protective clothing, and undergo routine screenings."
         },
