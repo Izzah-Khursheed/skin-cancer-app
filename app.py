@@ -70,8 +70,14 @@ with tabs[0]:
 with tabs[1]:
     st.header("📘 Treatment & Precautions")
     if 'last_prediction' in st.session_state:
+        st.write("🔍 Debug - Prediction Key:", st.session_state['last_prediction'])  # DEBUG PRINT
+
         info = get_treatment_info(st.session_state['last_prediction'])
-        st.markdown(info)  # FIXED: Use markdown to render Markdown properly
+
+        st.write("🔍 Debug - Treatment Info Returned:", info)  # DEBUG PRINT
+        st.markdown(info)
+        # info = get_treatment_info(st.session_state['last_prediction'])
+        # st.markdown(info)  # FIXED: Use markdown to render Markdown properly
     else:
         st.warning("Please upload an image first to get treatment suggestions.")
 
