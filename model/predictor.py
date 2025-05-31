@@ -32,9 +32,23 @@ def predict_skin_cancer(image_file):
     # Get probabilities
     probs = torch.nn.functional.softmax(outputs.logits, dim=1)[0]
 
-    # Get prediction
+    # Convert to dict of confidences
     confidence = {model.config.id2label[i]: float(probs[i]) * 100 for i in range(len(probs))}
     predicted_class = max(confidence, key=confidence.get)
-    risk_score = confidence[predicted_class]
+    predicted_confidence = confidence[predicted_class]
+
+    # Define medical risk levels per class (scale of 0 to 1)
+    medical_risk_weight = {
+        "mel": 1.0,   # Melanoma - highest risk
+        "akiec": 0.9, # Pre-cancerous
+        "bcc": 0.8,   # Carcinoma, treatable
+        "bkl": 0.3,   # Benign
+        "df": 0.2,    # Benign
+        "nv": 0.1,    # Mole - typically benign
+        "vasc": 0.1   # Vascular lesions - benign
+    }
+
+    # Final risk score = medical severity × prediction confidence
+    risk_score = predicted_confidence * medical_risk_weight.get(predicted_class, 0.1)
 
     return predicted_class, confidence, risk_score
