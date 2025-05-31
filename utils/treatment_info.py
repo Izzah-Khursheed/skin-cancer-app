@@ -190,14 +190,11 @@ def get_treatment_info(cancer_type):
     # }
 
 
-    # # Fall back in case of unexpected labels
-    # entry = info_db.get(cancer_type, {
-    #     "treatment": "Consult a board-certified dermatologist for proper diagnosis and treatment.",
-    #     "precautions": "Follow general skin protection and health practices."
-    # })
-
-    # return f"### 🩺 Treatment\n{entry['treatment']}\n\n### 🚧 Precautions\n{entry['precautions']}"
-
+    # Fall back in case of unexpected labels
+    entry = info_db.get(cancer_type, {
+        "treatment": "Consult a board-certified dermatologist for proper diagnosis and treatment.",
+        "precautions": "Follow general skin protection and health practices."
+    })
 
     # Format each sentence/line as bullet points
     # Split by '.' to get separate points, filter empty, strip spaces
