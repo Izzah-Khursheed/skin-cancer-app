@@ -3,7 +3,7 @@ from PIL import Image
 import torch
 
 # Load model and processor
-model_name = "huggingface-project/dermatology-model-ham10000"
+model_name = "ahishamm/vit-base-16-thesis-demo-HAM10000"
 model = AutoModelForImageClassification.from_pretrained(model_name)
 processor = AutoProcessor.from_pretrained(model_name)
 
