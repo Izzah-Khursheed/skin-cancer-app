@@ -1,11 +1,12 @@
 import requests
 import os
+import streamlit as st
 
-GROQ_API_KEY = os.getenv("GROQ_API_KEY") 
+GROQ_API_KEY = st.secrets["GROQ_API_KEY"]
 
-def groq_chatbot(user_input):
+def groq_chatbot(prompt):
     payload = {
-        "messages": [{"role": "user", "content": user_input}],
+        "messages": [{"role": "user", "content": prompt}],
         "model": "meta-llama/llama-4-scout-17b-16e-instruct"
     }
     response = requests.post("https://api.groq.com/openai/v1/chat/completions", json=payload)
