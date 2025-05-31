@@ -37,28 +37,4 @@ def predict_skin_cancer(image_file):
     predicted_class = max(confidence, key=confidence.get)
     risk_score = confidence[predicted_class]
 
-    # ✅ Map short label (e.g. 'bcc') to full name (e.g. 'Basal Cell Carcinoma')
-    full_name = label_to_name.get(predicted_class, predicted_class)
-
-    return full_name, confidence, risk_score
-
-
-# def predict_skin_cancer(image_file):
-#     image = Image.open(image_file).convert("RGB")
-
-#     # Preprocess image
-#     inputs = processor(images=image, return_tensors="pt")
-
-#     # Inference
-#     with torch.no_grad():
-#         outputs = model(**inputs)
-
-#     # Get probabilities
-#     probs = torch.nn.functional.softmax(outputs.logits, dim=1)[0]
-
-#     # Get prediction
-#     confidence = {model.config.id2label[i]: float(probs[i]) * 100 for i in range(len(probs))}
-#     predicted_class = max(confidence, key=confidence.get)
-#     risk_score = confidence[predicted_class]
-
-#     return predicted_class, confidence, risk_score
+    return predicted_class, confidence, risk_score
