@@ -67,10 +67,10 @@ with tabs[0]:
             f"""
             <div style='
                 background-color: #28a745;  /* Bootstrap green */
-                padding: 1.5rem;
-                border-radius: 12px;
+                padding: 2.5rem;
+                border-radius: 50px;
                 color: white;
-                font-size: 2.2rem;
+                font-size: 4rem;
                 font-weight: 800;
                 text-align: center;
                 margin-top: 1.5rem;
