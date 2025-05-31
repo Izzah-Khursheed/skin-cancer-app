@@ -87,7 +87,10 @@ with tabs[2]:
 # Tab 4: Chatbot
 with tabs[3]:
     st.header("💬 Skin Health Chatbot")
-    user_input = st.text_input("Ask a question related to skin diseases...")
+    user_input = st.text_input(
+        "Ask a question related to skin diseases...",
+        placeholder="E.g., What are the early signs of Melanoma?"
+    )
     if user_input:
         response = groq_chatbot(user_input)
-        st.markdown(f"**🤖 Answer:** {response}")
+        st.markdown(f"**🤖 Answer:**<br>{response}", unsafe_allow_html=True)
