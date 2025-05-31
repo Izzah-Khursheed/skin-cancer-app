@@ -198,9 +198,9 @@ def get_treatment_info(cancer_type):
 
     # Format each sentence/line as bullet points
     # Split by '.' to get separate points, filter empty, strip spaces
-    def format_as_bullets(text):
-        lines = [line.strip() for line in text.split('.') if line.strip()]
-        return '\n'.join([f"• {line}." for line in lines])
+    def format_as_bullets(lines):
+        # lines is already a list of strings, format each as bullet point
+        return '\n'.join([f"• {line}" for line in lines])
 
     treatment_formatted = format_as_bullets(entry['treatment'])
     precautions_formatted = format_as_bullets(entry['precautions'])
