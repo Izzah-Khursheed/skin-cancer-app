@@ -9,17 +9,27 @@ def groq_chatbot(prompt):
         "messages": [{"role": "user", "content": prompt}],
         "model": "meta-llama/llama-4-scout-17b-16e-instruct"
     }
-    response = requests.post("https://api.groq.com/openai/v1/chat/completions", json=payload)
-    
-    print("Status code:", response.status_code)  # or use logging
-    print("Response JSON:", response.json())     # or use logging
-    
-    # Check for 'choices' key before accessing
+
+    # ✅ Add Authorization header
+    headers = {
+        "Authorization": f"Bearer {GROQ_API_KEY}",
+        "Content-Type": "application/json"
+    }
+
+    response = requests.post(
+        "https://api.groq.com/openai/v1/chat/completions",
+        json=payload,
+        headers=headers
+    )
+
+    # Logging for debugging
+    print("Status code:", response.status_code)
+    print("Response JSON:", response.json())
+
     data = response.json()
     if "choices" in data:
         return data["choices"][0]["message"]["content"]
     else:
-        # Handle error gracefully, return error message or raise informative error
         return f"API error: {data.get('error', 'Unknown error')}"
 
 
