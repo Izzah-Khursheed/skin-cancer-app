@@ -45,7 +45,7 @@ with tabs[0]:
         ]
         for i, (img_file, label) in enumerate(sample_images):
             with cols[i % 3]:
-                st.image(f"assets/example_images/{img_file}", caption=label, use_column_width=True)
+                st.image(f"assets/example_images/{img_file}", caption=label, use_container_width=True)
 
     # Upload section
     uploaded_file = st.file_uploader("Upload a skin image (jpg/png)", type=["jpg", "jpeg", "png"])
