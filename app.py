@@ -64,9 +64,23 @@ with tabs[0]:
 
         # st.success(f"Predicted: {full_prediction_name}")
         st.markdown(
-            f"<h2 style='color: green;'>✅ Predicted: {full_prediction_name}</h2>",
+            f"""
+            <div style='
+                background-color: #28a745;  /* Bootstrap green */
+                padding: 1rem;
+                border-radius: 10px;
+                color: white;
+                font-size: 1.5rem;
+                font-weight: bold;
+                text-align: center;
+                margin-top: 1rem;
+            '>
+                ✅ Predicted: {full_prediction_name}
+            </div>
+            """,
             unsafe_allow_html=True
         )
+
 
         st.markdown("#### 📊 Confidence Scores")
         for label, conf in confidences.items():
