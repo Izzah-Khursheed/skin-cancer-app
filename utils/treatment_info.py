@@ -202,7 +202,7 @@ def get_treatment_info(cancer_type):
     #     # lines is already a list of strings, format each as bullet point
     #     return '\n'.join([f"• {line}" for line in lines])
 
-    def format_as_bullets_html(lines):
+    def format_as_bullets(lines):
         return '<ul>' + ''.join([f"<li>{line}</li>" for line in lines]) + '</ul>'
 
     treatment_formatted = format_as_bullets(entry['treatment'])
