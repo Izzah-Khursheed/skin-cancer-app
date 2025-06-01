@@ -17,7 +17,7 @@ label_to_name = {
 }
 
 st.set_page_config(page_title="Skin Cancer AI", layout="wide")
-st.sidebar.title("🧠 AI Skin Cancer Assistant")
+st.sidebar.title("🤖 AI Skin Cancer Assistant")
 model_accuracy_sidebar()
 
 st.title("🧬 AI-Powered Skin Cancer Detection & Help Desk")
@@ -66,16 +66,16 @@ with tabs[0]:
         st.markdown(
             f"""
             <div style='
-                background-color: #28a745;  /* Bootstrap green */
-                padding: 2.5rem;
-                border-radius: 50px;
-                color: white;
-                font-size: 4rem;
-                font-weight: 800;
-                text-align: center;
-                margin-top: 1.5rem;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            '>
+                background-color: #d4edda; 
+                border-left: 8px solid #28a745; 
+                padding: 1.5rem; 
+                border-radius: 12px; 
+                color: #155724; 
+                font-size: 1.8rem; 
+                font-weight: bold; 
+                margin-top: 1rem;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);'
+            >
                 ✅ Predicted: {full_prediction_name}
             </div>
             """,
@@ -83,7 +83,8 @@ with tabs[0]:
         )
 
 
-        st.markdown("#### 📊 Confidence Scores")
+
+        st.markdown("#### 📈 Confidence Scores")
         for label, conf in confidences.items():
             st.write(f"- **{label_to_name.get(label, label)}**: {conf:.2f}%")
 
@@ -104,7 +105,7 @@ with tabs[1]:
 
 # Tab 3: Visualization
 with tabs[2]:
-    st.header("📊 Prediction Breakdown")
+    st.header("🔬 Prediction Breakdown")
     if 'last_confidences' in st.session_state:
         display_prediction_charts(st.session_state['last_confidences'])
         display_risk_graph(st.session_state['last_risk'])
