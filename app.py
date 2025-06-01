@@ -5,21 +5,6 @@ from utils.treatment_info import get_treatment_info
 from utils.visualization import display_prediction_charts, display_risk_graph, model_accuracy_sidebar
 from chatbot.groq_chatbot import groq_chatbot
 
-st.markdown(
-    """
-    <style>
-    .footer-disclaimer {
-        position: fixed;
-        bottom: 20px;
-        left: 50px;
-        right: 50px;
-        z-index: 999;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
 # Mapping of labels to full names
 label_to_name = {
     "mel": "Melanoma",
@@ -36,6 +21,21 @@ st.sidebar.title("🤖 AI Skin Cancer Assistant")
 # model_accuracy_sidebar()
 
 st.title("🧬 AI-Powered Skin Cancer Detection & Help Desk")
+
+st.markdown(
+    """
+    <style>
+    .footer-disclaimer {
+        position: fixed;
+        bottom: 20px;
+        left: 50px;
+        right: 50px;
+        z-index: 999;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 tabs = st.tabs(["**📁 Upload & Predict**", "**📘 Treatment Info**", "**📊 Visualization**", "**💬 Chatbot**"])
 
