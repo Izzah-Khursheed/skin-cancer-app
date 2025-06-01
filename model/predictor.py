@@ -3,9 +3,6 @@ from PIL import Image
 import torch
 
 # # Load model and processor
-# model_name = "ahishamm/vit-base-16-thesis-demo-HAM10000"
-# model = AutoModelForImageClassification.from_pretrained(model_name)
-# processor = AutoProcessor.from_pretrained(model_name)
 model_name = "ALM-AHME/beit-large-patch16-224-finetuned-Lesion-Classification-HAM10000-AH-60-20-20"
 model = BeitForImageClassification.from_pretrained(model_name)
 processor = AutoImageProcessor.from_pretrained(model_name)
@@ -59,38 +56,3 @@ def predict_skin_cancer(image_file):
     risk_score = predicted_confidence * medical_risk_weight.get(predicted_class, 0.1)
 
     return predicted_class, confidence, risk_score
-
-
-# def predict_skin_cancer(image_file):
-#     image = Image.open(image_file).convert("RGB")
-
-#     # Preprocess image
-#     inputs = processor(images=image, return_tensors="pt")
-
-#     # Inference
-#     with torch.no_grad():
-#         outputs = model(**inputs)
-
-#     # Get probabilities
-#     probs = torch.nn.functional.softmax(outputs.logits, dim=1)[0]
-
-#     # Convert to dict of confidences
-#     confidence = {model.config.id2label[i]: float(probs[i]) * 100 for i in range(len(probs))}
-#     predicted_class = max(confidence, key=confidence.get)
-#     predicted_confidence = confidence[predicted_class]
-
-#     # Define medical risk levels per class (scale of 0 to 1)
-#     medical_risk_weight = {
-#         "mel": 1.0,   # Melanoma - highest risk
-#         "akiec": 0.9, # Pre-cancerous
-#         "bcc": 0.8,   # Carcinoma, treatable
-#         "bkl": 0.3,   # Benign
-#         "df": 0.2,    # Benign
-#         "nv": 0.1,    # Mole - typically benign
-#         "vasc": 0.1   # Vascular lesions - benign
-#     }
-
-#     # Final risk score = medical severity × prediction confidence
-#     risk_score = predicted_confidence * medical_risk_weight.get(predicted_class, 0.1)
-
-#     return predicted_class, confidence, risk_score
