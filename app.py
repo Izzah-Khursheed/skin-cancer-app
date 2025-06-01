@@ -18,7 +18,7 @@ label_to_name = {
 
 st.set_page_config(page_title="Skin Cancer AI", page_icon="favicon.png", layout="wide")
 st.sidebar.title("🤖 AI Skin Cancer Assistant")
-# model_accuracy_sidebar()
+model_accuracy_sidebar()
 
 st.title("🧬 AI-Powered Skin Cancer Detection & Help Desk")
 
@@ -94,7 +94,6 @@ with tabs[0]:
         st.session_state['last_prediction'] = prediction
         st.session_state['last_confidences'] = confidences
         st.session_state['last_risk'] = risk_score
-        model_accuracy_sidebar()
 
 # Tab 2: Treatment Info
 with tabs[1]:
@@ -137,7 +136,7 @@ st.markdown(
         border-radius: 10px; 
         color: #856404; 
         font-size: 0.95rem;
-        margin-top: 6rem;
+        margin-top: 3rem;
     '>
         ⚠️ <strong>Disclaimer:</strong> This AI tool is intended for informational purposes only. It is not a substitute for professional medical advice, diagnosis, or treatment. Predictions may not always be accurate. Please consult a certified healthcare professional for medical concerns.
     </div>
