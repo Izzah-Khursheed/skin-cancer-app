@@ -51,7 +51,7 @@ def model_accuracy_sidebar():
         if 'accuracy_history' not in st.session_state:
             st.session_state.accuracy_history = []
 
-        st.markdown("**🔁 Dynamic Accuracy Option:**  \n`Calculate After Prediction`")
+        st.markdown("**🧪 Simulated Accuracy (For Demo Use Only):**  \n`Calculate After Prediction`")
 
         if 'last_prediction' in st.session_state:
             # Simulated accuracy (replace with actual accuracy computation logic)
