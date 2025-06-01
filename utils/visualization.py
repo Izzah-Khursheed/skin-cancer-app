@@ -44,24 +44,23 @@ def model_accuracy_sidebar():
     with st.sidebar:
         st.markdown("### 🧠 Model Overview")
 
-        # Show static accuracy always
-        st.markdown("**🔎 Static Accuracy:** `99.08%`")
+        # Always visible static accuracy
+        st.markdown("**🔎 Model Accuracy:** `90.00%`")
 
         # Track accuracy history
         if 'accuracy_history' not in st.session_state:
             st.session_state.accuracy_history = []
 
-        # Option to calculate dynamic accuracy
+        # Dynamic accuracy section
         calc_option = st.selectbox("🔁 Dynamic Accuracy Options", ["Calculate After Prediction"])
-
         if calc_option == "Calculate After Prediction":
             if 'last_prediction' in st.session_state:
-                # Simulated dynamic accuracy (replace with real if available)
+                # Simulated accuracy (replace with real calculation)
                 current_accuracy = round(random.uniform(85.0, 97.0), 2)
                 st.session_state.accuracy_history.append(current_accuracy)
                 st.success(f"Calculated Accuracy: {current_accuracy}%")
 
-                # Accuracy Trend Plot
+                # Accuracy Plot
                 fig = go.Figure()
                 fig.add_trace(go.Scatter(
                     y=st.session_state.accuracy_history,
@@ -76,9 +75,9 @@ def model_accuracy_sidebar():
                 )
                 st.plotly_chart(fig, use_container_width=True)
             else:
-                st.info("Upload an image to enable dynamic accuracy calculation.")
+                st.info("Upload an image to calculate dynamic accuracy.")
 
-        # 📦 Model Info Dropdown
+        # ✅ Separate Expanders (not nested)
         with st.expander("📦 View Model Info"):
             st.markdown("**Model**: [BEiT-Large Fine-Tuned](https://huggingface.co/ALM-AHME/beit-large-patch16-224-finetuned-Lesion-Classification-HAM10000-AH-60-20-20) 🧬")
             st.markdown("**Base Architecture**: BEiT-Large Patch16-224 (Vision Transformer)")
@@ -88,13 +87,16 @@ def model_accuracy_sidebar():
             st.markdown("**Last Updated**: December 1, 2024")
             st.markdown("**License**: Apache 2.0")
 
-            with st.expander("📄 More Technical Details"):
-                st.markdown("""
-                - **Pretrained On**: ImageNet-21k  
-                - **Optimizer**: Adam (LR: 5e-6)  
-                - **Loss Function**: CrossEntropyLoss  
-                - **Use Case**: Medical Skin Lesion Classification  
-                """)
+        # ✅ Another top-level expander
+        with st.expander("📄 More Technical Details"):
+            st.markdown("""
+            - **Pretrained On**: ImageNet-21k  
+            - **Optimizer**: Adam (LR: 5e-6)  
+            - **Loss Function**: CrossEntropyLoss  
+            - **Use Case**: Medical Skin Cancer Classification  
+            """)
+
+
 
 
 
