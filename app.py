@@ -136,7 +136,7 @@ st.markdown(
         border-radius: 10px; 
         color: #856404; 
         font-size: 0.95rem;
-        margin-top: 5rem;
+        margin-top: 6rem;
     '>
         ⚠️ <strong>Disclaimer:</strong> This AI tool is intended for informational purposes only. It is not a substitute for professional medical advice, diagnosis, or treatment. Predictions may not always be accurate. Please consult a certified healthcare professional for medical concerns.
     </div>
