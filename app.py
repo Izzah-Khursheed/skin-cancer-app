@@ -74,6 +74,7 @@ with tabs[0]:
                 font-size: 1.8rem; 
                 font-weight: bold; 
                 margin-top: 1rem;
+                margin-bottom: 2rem;
                 box-shadow: 0 4px 10px rgba(0,0,0,0.1);'
             >
                 ✅ Predicted: {full_prediction_name}
