@@ -5,6 +5,21 @@ from utils.treatment_info import get_treatment_info
 from utils.visualization import display_prediction_charts, display_risk_graph, model_accuracy_sidebar
 from chatbot.groq_chatbot import groq_chatbot
 
+st.markdown(
+    """
+    <style>
+    .footer-disclaimer {
+        position: fixed;
+        bottom: 20px;
+        left: 50px;
+        right: 50px;
+        z-index: 999;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 # Mapping of labels to full names
 label_to_name = {
     "mel": "Melanoma",
@@ -130,7 +145,7 @@ st.markdown("---")
 
 st.markdown(
     """
-    <div style='
+    <div class='footer-disclaimer' style='
         background-color: #fff3cd; 
         border-left: 6px solid #ffcc00; 
         padding: 1rem; 
