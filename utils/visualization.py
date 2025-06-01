@@ -82,7 +82,7 @@ def model_accuracy_sidebar():
             st.markdown("**Model**: [BEiT-Large Fine-Tuned](https://huggingface.co/ALM-AHME/beit-large-patch16-224-finetuned-Lesion-Classification-HAM10000-AH-60-20-20) 🧬")
             st.markdown("**Base Architecture**: BEiT-Large Patch16-224 (Vision Transformer)")
             st.markdown("**Dataset**: HAM10000 (10,015 dermatoscopic images)")
-            st.markdown("**Evaluation Accuracy**: 99.08% ✅")
+            st.markdown("**Evaluation Accuracy**: 99.08%")
             st.markdown("**Fine-Tuned Epochs**: 12")
             st.markdown("**Last Updated**: December 1, 2024")
             st.markdown("**License**: Apache 2.0")
