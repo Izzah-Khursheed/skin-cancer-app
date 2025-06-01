@@ -45,13 +45,13 @@ def model_accuracy_sidebar():
         st.markdown("### 🧠 Model Overview")
 
         # Static accuracy (always visible)
-        st.markdown("**🔎 Model Accuracy:** `90.00%`")
+        st.markdown("**🔎 Model Accuracy:**  \n`90.00%`")
 
         # Initialize accuracy history if not present
         if 'accuracy_history' not in st.session_state:
             st.session_state.accuracy_history = []
 
-        st.markdown("**🔁 Dynamic Accuracy Option:** `Calculate After Prediction`")
+        st.markdown("**🔁 Dynamic Accuracy Option:**  \n`Calculate After Prediction`")
 
         if 'last_prediction' in st.session_state:
             # Simulated accuracy (replace with actual accuracy computation logic)
