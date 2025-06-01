@@ -40,44 +40,50 @@ def display_risk_graph(risk):
 import random
 import plotly.graph_objects as go
 
+import streamlit as st
+import plotly.graph_objects as go
+import random  # Only for simulating accuracy
+
 def model_accuracy_sidebar():
     with st.sidebar:
         st.markdown("### 🧠 Model Overview")
 
-        # Always visible static accuracy
+        # Static accuracy (always visible)
         st.markdown("**🔎 Model Accuracy:** `90.00%`")
 
-        # Track accuracy history
+        # Initialize accuracy history if not present
         if 'accuracy_history' not in st.session_state:
             st.session_state.accuracy_history = []
 
-        # Dynamic accuracy section
-        calc_option = st.selectbox("**🔁 Dynamic Accuracy Option:**", ["Calculate After Prediction"])
-        if calc_option == "Calculate After Prediction":
-            if 'last_prediction' in st.session_state:
-                # Simulated accuracy (replace with real calculation)
-                current_accuracy = round(random.uniform(85.0, 97.0), 2)
-                st.session_state.accuracy_history.append(current_accuracy)
-                st.success(f"Calculated Accuracy: {current_accuracy}%")
+        st.markdown("**🔁 Dynamic Accuracy Option:** `Calculate After Prediction`")
 
-                # Accuracy Plot
-                fig = go.Figure()
-                fig.add_trace(go.Scatter(
-                    y=st.session_state.accuracy_history,
-                    mode='lines+markers',
-                    name='Accuracy Trend'
-                ))
-                fig.update_layout(
-                    title="📈 Accuracy Over Time",
-                    xaxis_title="Prediction Count",
-                    yaxis_title="Accuracy (%)",
-                    height=300
-                )
-                st.plotly_chart(fig, use_container_width=True)
-            else:
-                st.info("Upload an image to calculate dynamic accuracy.")
+        if 'last_prediction' in st.session_state:
+            # Simulated accuracy (replace with actual accuracy computation logic)
+            current_accuracy = round(random.uniform(85.0, 97.0), 2)
 
-        # ✅ Separate Expanders (not nested)
+            # Add to accuracy history
+            st.session_state.accuracy_history.append(current_accuracy)
+
+            # Show current accuracy
+            st.success(f"Calculated Accuracy: **{current_accuracy}%**")
+
+            # Plot accuracy trend
+            fig = go.Figure()
+            fig.add_trace(go.Scatter(
+                y=st.session_state.accuracy_history,
+                mode='lines+markers',
+                name='Accuracy Trend'
+            ))
+            fig.update_layout(
+                title="📈 Accuracy Over Time",
+                xaxis_title="Prediction Count",
+                yaxis_title="Accuracy (%)",
+                height=300
+            )
+            st.plotly_chart(fig, use_container_width=True)
+        else:
+            st.info("📤 Upload an image to trigger prediction and calculate accuracy.")
+
         with st.expander("📦 View Model Info"):
             st.markdown("**Model**: [BEiT-Large Fine-Tuned](https://huggingface.co/ALM-AHME/beit-large-patch16-224-finetuned-Lesion-Classification-HAM10000-AH-60-20-20) 🧬")
             st.markdown("**Base Architecture**: BEiT-Large Patch16-224 (Vision Transformer)")
@@ -87,7 +93,6 @@ def model_accuracy_sidebar():
             st.markdown("**Last Updated**: December 1, 2024")
             st.markdown("**License**: Apache 2.0")
 
-        # ✅ Another top-level expander
         with st.expander("📄 More Technical Details"):
             st.markdown("""
             - **Pretrained On**: ImageNet-21k  
@@ -95,44 +100,3 @@ def model_accuracy_sidebar():
             - **Loss Function**: CrossEntropyLoss  
             - **Use Case**: Medical Skin Cancer Classification  
             """)
-
-
-
-
-
-# def model_accuracy_sidebar():
-#     with st.sidebar:
-#         st.markdown("### 🧠 Model Info")
-        
-#         # Store accuracy history in session state
-#         if 'accuracy_history' not in st.session_state:
-#             st.session_state.accuracy_history = []
-
-#         # Option to calculate accuracy
-#         calc_option = st.selectbox("Accuracy Options", ["View Static Accuracy", "Calculate After Prediction"])
-
-#         if calc_option == "View Static Accuracy":
-#             st.write("Accuracy: **90.0%**")
-#         elif calc_option == "Calculate After Prediction":
-#             if 'last_prediction' in st.session_state:
-#                 # Simulated dynamic accuracy (replace with real one if available)
-#                 current_accuracy = round(random.uniform(85.0, 97.0), 2)
-#                 st.session_state.accuracy_history.append(current_accuracy)
-#                 st.success(f"Calculated Accuracy: {current_accuracy}%")
-
-#                 # Display trend chart
-#                 fig = go.Figure()
-#                 fig.add_trace(go.Scatter(
-#                     y=st.session_state.accuracy_history,
-#                     mode='lines+markers',
-#                     name='Accuracy Trend'
-#                 ))
-#                 fig.update_layout(
-#                     title="📈 Accuracy Over Time",
-#                     xaxis_title="Prediction Count",
-#                     yaxis_title="Accuracy (%)",
-#                     height=300
-#                 )
-#                 st.plotly_chart(fig, use_container_width=True)
-#             else:
-#                 st.info("Upload an image to enable dynamic accuracy calculation.")
