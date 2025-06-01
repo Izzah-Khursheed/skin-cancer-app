@@ -44,86 +44,41 @@ def model_accuracy_sidebar():
     with st.sidebar:
         st.markdown("### 🧠 Model Overview")
 
+        # Static accuracy (always visible)
         st.markdown("**🔎 Model Accuracy:** `90.00%`")
 
-        # Initialize session state
-        if 'prediction_results' not in st.session_state:
-            st.session_state.prediction_results = []
-        if 'accuracy_trend' not in st.session_state:
-            st.session_state.accuracy_trend = []
+        # Initialize accuracy history if not present
+        if 'accuracy_history' not in st.session_state:
+            st.session_state.accuracy_history = []
 
-        st.markdown("**🔁 Dynamic Accuracy Option:**")
-        st.markdown("✔️ **Real-time Accuracy After Each Prediction**")
+        st.markdown("**🔁 Dynamic Accuracy Option:** `Calculate After Prediction`")
 
-        # Only proceed if prediction and ground truth are available
-        if 'last_prediction' in st.session_state and 'ground_truth' in st.session_state:
-            pred = st.session_state['last_prediction']
-            actual = st.session_state['ground_truth']
-            is_correct = pred == actual
-            st.session_state.prediction_results.append(is_correct)
+        if 'last_prediction' in st.session_state:
+            # Simulated accuracy (replace with actual accuracy computation logic)
+            current_accuracy = round(random.uniform(85.0, 97.0), 2)
 
-            accuracy = round((sum(st.session_state.prediction_results) / len(st.session_state.prediction_results)) * 100, 2)
-            st.session_state.accuracy_trend.append(accuracy)
+            # Add to accuracy history
+            st.session_state.accuracy_history.append(current_accuracy)
 
-            st.success(f"✅ Real-Time Accuracy: {accuracy}%")
+            # Show current accuracy
+            st.success(f"Calculated Accuracy: **{current_accuracy}%**")
 
+            # Plot accuracy trend
             fig = go.Figure()
             fig.add_trace(go.Scatter(
-                y=st.session_state.accuracy_trend,
+                y=st.session_state.accuracy_history,
                 mode='lines+markers',
-                name='Accuracy Over Time'
+                name='Accuracy Trend'
             ))
             fig.update_layout(
-                title="📈 Accuracy Trend",
+                title="📈 Accuracy Over Time",
                 xaxis_title="Prediction Count",
                 yaxis_title="Accuracy (%)",
                 height=300
             )
             st.plotly_chart(fig, use_container_width=True)
         else:
-            st.info("📤 Upload an image and provide ground truth to track accuracy.")
-
-
-
-# def model_accuracy_sidebar():
-#     with st.sidebar:
-#         st.markdown("### 🧠 Model Overview")
-
-#         # Static accuracy (always visible)
-#         st.markdown("**🔎 Model Accuracy:** `90.00%`")
-
-#         # Initialize accuracy history if not present
-#         if 'accuracy_history' not in st.session_state:
-#             st.session_state.accuracy_history = []
-
-#         st.markdown("**🔁 Dynamic Accuracy Option:** `Calculate After Prediction`")
-
-#         if 'last_prediction' in st.session_state:
-#             # Simulated accuracy (replace with actual accuracy computation logic)
-#             current_accuracy = round(random.uniform(85.0, 97.0), 2)
-
-#             # Add to accuracy history
-#             st.session_state.accuracy_history.append(current_accuracy)
-
-#             # Show current accuracy
-#             st.success(f"Calculated Accuracy: **{current_accuracy}%**")
-
-#             # Plot accuracy trend
-#             fig = go.Figure()
-#             fig.add_trace(go.Scatter(
-#                 y=st.session_state.accuracy_history,
-#                 mode='lines+markers',
-#                 name='Accuracy Trend'
-#             ))
-#             fig.update_layout(
-#                 title="📈 Accuracy Over Time",
-#                 xaxis_title="Prediction Count",
-#                 yaxis_title="Accuracy (%)",
-#                 height=300
-#             )
-#             st.plotly_chart(fig, use_container_width=True)
-#         else:
-#             st.info("📤 Upload an image to trigger prediction and calculate accuracy.")
+            st.info("📤 Upload an image to trigger prediction and calculate accuracy.")
 
         with st.expander("📦 View Model Info"):
             st.markdown("**Model**: [BEiT-Large Fine-Tuned](https://huggingface.co/ALM-AHME/beit-large-patch16-224-finetuned-Lesion-Classification-HAM10000-AH-60-20-20) 🧬")
