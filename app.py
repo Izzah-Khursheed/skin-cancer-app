@@ -123,3 +123,11 @@ with tabs[3]:
     if user_input:
         response = groq_chatbot(user_input)
         st.markdown(f"**🤖 Answer:**<br>{response}", unsafe_allow_html=True)
+
+# 📝 Footer Disclaimer
+st.markdown("""
+---
+<div style='text-align: center; font-size: 0.9rem; color: gray; padding-top: 2rem;'>
+⚠️ <b>Disclaimer:</b> This application uses an AI model to assist with skin cancer detection. It is not a substitute for professional medical advice, diagnosis, or treatment. Always consult a certified healthcare provider for any health concerns. Predictions may not be fully accurate.
+</div>
+""", unsafe_allow_html=True)
