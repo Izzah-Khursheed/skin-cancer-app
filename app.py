@@ -125,35 +125,20 @@ with tabs[3]:
         response = groq_chatbot(user_input)
         st.markdown(f"**🤖 Answer:**<br>{response}", unsafe_allow_html=True)
 
+# --- Footer Disclaimer and Explanation ---
+st.markdown("---")
 
-
-# --- Start of layout wrapper ---
 st.markdown(
     """
-    <style>
-    .container {
-        display: flex;
-        flex-direction: column;
-        min-height: 90vh; /* Adjust based on header height */
-        justify-content: flex-end;
-    }
-    </style>
-    <div class="container">
-    """,
-    unsafe_allow_html=True
-)
-
-# --- Disclaimer Block ---
-st.markdown(
-    """
-    <div style='
+    <div class='footer-disclaimer' style='
         background-color: #fff3cd; 
         border-left: 6px solid #ffcc00; 
         padding: 1rem; 
         border-radius: 10px; 
         color: #856404; 
         font-size: 0.95rem;
-        margin-bottom: 1rem;
+        margin-top: 2rem;
+        margin-bottom: -5rem
     '>
         ⚠️ <strong>Disclaimer:</strong> This AI tool is intended for informational purposes only. It is not a substitute for professional medical advice, diagnosis, or treatment. Predictions may not always be accurate. Please consult a certified healthcare professional for medical concerns.
     </div>
@@ -161,59 +146,18 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# --- Expander Block ---
 with st.expander("**🤔 Why the AI Model Might Be Inaccurate?**"):
     st.markdown(
         """
         Even the most advanced AI models can make incorrect predictions due to various limitations. Here are some common reasons:
-
-        - 📸 **Poor Image Quality**: Blurry, low-resolution, or poorly lit images can reduce prediction accuracy.  
-        - 🎨 **Visual Similarity Between Conditions**: Many skin conditions appear visually similar, making it hard even for AI to differentiate.  
-        - 🌈 **Skin Tone Variability**: Models may perform differently across diverse skin tones if the training data lacks representation.  
-        - 🧪 **Noise or Artifacts in the Image**: Tattoos, hair, shadows, or reflections can confuse the model.  
-        - 🧠 **Model Limitations**: The AI learns from a fixed dataset and cannot generalize well to unknown patterns or rare conditions.  
-        - 📚 **Lack of Clinical Context**: The model cannot consider symptoms, history, or physical examinations like a human doctor would.  
-
+        
+        - 📸 **Poor Image Quality**: Blurry, low-resolution, or poorly lit images can reduce prediction accuracy.
+        - 🎨 **Visual Similarity Between Conditions**: Many skin conditions appear visually similar, making it hard even for AI to differentiate.
+        - 🌈 **Skin Tone Variability**: Models may perform differently across diverse skin tones if the training data lacks representation.
+        - 🧪 **Noise or Artifacts in the Image**: Tattoos, hair, shadows, or reflections can confuse the model.
+        - 🧠 **Model Limitations**: The AI learns from a fixed dataset and cannot generalize well to unknown patterns or rare conditions.
+        - 📚 **Lack of Clinical Context**: The model cannot consider symptoms, history, or physical examinations like a human doctor would.
+        
         Always treat AI predictions as supportive insights—not definitive answers.
         """
     )
-
-# --- Close layout wrapper ---
-st.markdown("</div>", unsafe_allow_html=True)
-
-
-# # --- Footer Disclaimer and Explanation ---
-# st.markdown("---")
-
-# st.markdown(
-#     """
-#     <div class='footer-disclaimer' style='
-#         background-color: #fff3cd; 
-#         border-left: 6px solid #ffcc00; 
-#         padding: 1rem; 
-#         border-radius: 10px; 
-#         color: #856404; 
-#         font-size: 0.95rem;
-#         margin-top: 2rem;
-#     '>
-#         ⚠️ <strong>Disclaimer:</strong> This AI tool is intended for informational purposes only. It is not a substitute for professional medical advice, diagnosis, or treatment. Predictions may not always be accurate. Please consult a certified healthcare professional for medical concerns.
-#     </div>
-#     """,
-#     unsafe_allow_html=True
-# )
-
-# with st.expander("**🤔 Why the AI Model Might Be Inaccurate?**"):
-#     st.markdown(
-#         """
-#         Even the most advanced AI models can make incorrect predictions due to various limitations. Here are some common reasons:
-        
-#         - 📸 **Poor Image Quality**: Blurry, low-resolution, or poorly lit images can reduce prediction accuracy.
-#         - 🎨 **Visual Similarity Between Conditions**: Many skin conditions appear visually similar, making it hard even for AI to differentiate.
-#         - 🌈 **Skin Tone Variability**: Models may perform differently across diverse skin tones if the training data lacks representation.
-#         - 🧪 **Noise or Artifacts in the Image**: Tattoos, hair, shadows, or reflections can confuse the model.
-#         - 🧠 **Model Limitations**: The AI learns from a fixed dataset and cannot generalize well to unknown patterns or rare conditions.
-#         - 📚 **Lack of Clinical Context**: The model cannot consider symptoms, history, or physical examinations like a human doctor would.
-        
-#         Always treat AI predictions as supportive insights—not definitive answers.
-#         """
-#     )
