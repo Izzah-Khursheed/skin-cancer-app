@@ -16,7 +16,7 @@ label_to_name = {
     "vasc": "Vascular Lesions"
 }
 
-st.set_page_config(page_title="Skin Cancer AI", layout="wide")
+st.set_page_config(page_title="Skin Cancer AI", page_icon="favicon.png", layout="wide")
 st.sidebar.title("🤖 AI Skin Cancer Assistant")
 model_accuracy_sidebar()
 
