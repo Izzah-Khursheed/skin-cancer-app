@@ -150,8 +150,7 @@ with st.expander("**🤔 Why the AI Model Might Be Inaccurate?**"):
     st.markdown(
         """
          <div style='
-        margin-top: 2rem;
-        margin-bottom: -10rem
+        margin-top: 10rem;
        '>
         Even the most advanced AI models can make incorrect predictions due to various limitations. Here are some common reasons:
         
