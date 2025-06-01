@@ -138,7 +138,7 @@ st.markdown(
         color: #856404; 
         font-size: 0.95rem;
         margin-top: 2rem;
-        margin-bottom: -10rem
+        # margin-bottom: -15rem
     '>
         ⚠️ <strong>Disclaimer:</strong> This AI tool is intended for informational purposes only. It is not a substitute for professional medical advice, diagnosis, or treatment. Predictions may not always be accurate. Please consult a certified healthcare professional for medical concerns.
     </div>
@@ -150,7 +150,7 @@ with st.expander("**🤔 Why the AI Model Might Be Inaccurate?**"):
     st.markdown(
         """
          <div style='
-        margin-top: 10rem;
+        
        '>
         Even the most advanced AI models can make incorrect predictions due to various limitations. Here are some common reasons:
         
