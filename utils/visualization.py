@@ -52,7 +52,7 @@ def model_accuracy_sidebar():
             st.session_state.accuracy_history = []
 
         # Dynamic accuracy section
-        calc_option = st.selectbox("🔁 Dynamic Accuracy Options", ["Calculate After Prediction"])
+        calc_option = st.selectbox("**🔁 Dynamic Accuracy Option:**", ["Calculate After Prediction"])
         if calc_option == "Calculate After Prediction":
             if 'last_prediction' in st.session_state:
                 # Simulated accuracy (replace with real calculation)
