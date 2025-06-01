@@ -130,7 +130,7 @@ st.markdown("---")
 
 st.markdown(
     """
-    <div class='footer-disclaimer' style='
+    <div style='
         background-color: #fff3cd; 
         border-left: 6px solid #ffcc00; 
         padding: 1rem; 
@@ -149,6 +149,10 @@ st.markdown(
 with st.expander("**🤔 Why the AI Model Might Be Inaccurate?**"):
     st.markdown(
         """
+         <div style='
+        margin-top: 2rem;
+        margin-bottom: -10rem
+       '>
         Even the most advanced AI models can make incorrect predictions due to various limitations. Here are some common reasons:
         
         - 📸 **Poor Image Quality**: Blurry, low-resolution, or poorly lit images can reduce prediction accuracy.
@@ -159,5 +163,7 @@ with st.expander("**🤔 Why the AI Model Might Be Inaccurate?**"):
         - 📚 **Lack of Clinical Context**: The model cannot consider symptoms, history, or physical examinations like a human doctor would.
         
         Always treat AI predictions as supportive insights—not definitive answers.
-        """
+        </div>
+        """,
+        unsafe_allow_html=True
     )
