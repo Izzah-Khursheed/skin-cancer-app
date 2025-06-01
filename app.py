@@ -138,7 +138,7 @@ st.markdown(
         color: #856404; 
         font-size: 0.95rem;
         margin-top: 2rem;
-        margin-bottom: -5rem
+        margin-bottom: -10rem
     '>
         ⚠️ <strong>Disclaimer:</strong> This AI tool is intended for informational purposes only. It is not a substitute for professional medical advice, diagnosis, or treatment. Predictions may not always be accurate. Please consult a certified healthcare professional for medical concerns.
     </div>
