@@ -18,7 +18,7 @@ label_to_name = {
 
 st.set_page_config(page_title="Skin Cancer AI", page_icon="favicon.png", layout="wide")
 st.sidebar.title("🤖 AI Skin Cancer Assistant")
-model_accuracy_sidebar(force_update=False)
+# model_accuracy_sidebar()
 
 st.title("🧬 AI-Powered Skin Cancer Detection & Help Desk")
 
@@ -94,7 +94,7 @@ with tabs[0]:
         st.session_state['last_prediction'] = prediction
         st.session_state['last_confidences'] = confidences
         st.session_state['last_risk'] = risk_score
-        model_accuracy_sidebar()
+model_accuracy_sidebar()
 
 # Tab 2: Treatment Info
 with tabs[1]:
