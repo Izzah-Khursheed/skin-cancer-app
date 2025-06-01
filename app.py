@@ -22,7 +22,7 @@ model_accuracy_sidebar()
 
 st.title("🧬 AI-Powered Skin Cancer Detection & Help Desk")
 
-tabs = st.tabs(["📁 Upload & Predict", "📘 Treatment Info", "📊 Visualization", "💬 Chatbot"])
+tabs = st.tabs(["**📁 Upload & Predict**", "**📘 Treatment Info**", "**📊 Visualization**", "**💬 Chatbot**"])
 
 # Tab 1: Upload & Predict
 with tabs[0]:
@@ -43,7 +43,7 @@ with tabs[0]:
             with cols[i % 3]:
                 st.image(f"assets/example_images/{img_file}", caption=label, use_container_width=True)
 
-    uploaded_file = st.file_uploader("Upload a skin image (jpg/png)", type=["jpg", "jpeg", "png"])
+    uploaded_file = st.file_uploader("**Upload a Skin Image**", type=["jpg", "jpeg", "png"])
 
     if uploaded_file is not None:
         image = Image.open(uploaded_file).convert("RGB")
