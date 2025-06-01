@@ -13,7 +13,7 @@ label_to_name = {
 }
 
 def display_prediction_charts(confidence):
-    chart_type = st.selectbox("Select Chart Type", ["Pie Chart", "Bar Chart"])
+    chart_type = st.selectbox("**Select Chart Type**", ["Pie Chart", "Bar Chart"])
 
     # Replace abbreviations with full names
     labels = [label_to_name.get(label, label) for label in confidence.keys()]
@@ -80,7 +80,7 @@ def model_accuracy_sidebar():
         else:
             st.info("📤 Upload an image to trigger prediction and calculate accuracy.")
 
-        with st.expander("📦 View Model Info"):
+        with st.expander("**📦 View Model Info**"):
             st.markdown("**Model**: [BEiT-Large Fine-Tuned](https://huggingface.co/ALM-AHME/beit-large-patch16-224-finetuned-Lesion-Classification-HAM10000-AH-60-20-20) 🧬")
             st.markdown("**Base Architecture**: BEiT-Large Patch16-224 (Vision Transformer)")
             st.markdown("**Dataset**: HAM10000 (10,015 dermatoscopic images)")
@@ -89,7 +89,7 @@ def model_accuracy_sidebar():
             st.markdown("**Last Updated**: December 1, 2024")
             st.markdown("**License**: Apache 2.0")
 
-        with st.expander("📄 More Technical Details"):
+        with st.expander("**📄 More Technical Details**"):
             st.markdown("""
             - **Pretrained On**: ImageNet-21k  
             - **Optimizer**: Adam (LR: 5e-6)  
