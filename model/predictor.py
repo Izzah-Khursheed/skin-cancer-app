@@ -7,6 +7,15 @@ model_name = "ALM-AHME/beit-large-patch16-224-finetuned-Lesion-Classification-HA
 model = BeitForImageClassification.from_pretrained(model_name)
 processor = AutoImageProcessor.from_pretrained(model_name)
 
+# from transformers import AutoProcessor, AutoModelForImageClassification
+# from PIL import Image
+# import torch
+
+# # Load model and processor
+# model_name = "ahishamm/vit-base-16-thesis-demo-HAM10000"
+# model = AutoModelForImageClassification.from_pretrained(model_name)
+# processor = AutoProcessor.from_pretrained(model_name)
+
 # Optional mapping for full names (same as in app.py)
 label_to_name = {
     "mel": "Melanoma",
