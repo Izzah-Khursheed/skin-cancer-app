@@ -138,7 +138,6 @@ st.markdown(
         color: #856404; 
         font-size: 0.95rem;
         margin-top: 2rem;
-        # margin-bottom: -15rem
     '>
         ⚠️ <strong>Disclaimer:</strong> This AI tool is intended for informational purposes only. It is not a substitute for professional medical advice, diagnosis, or treatment. Predictions may not always be accurate. Please consult a certified healthcare professional for medical concerns.
     </div>
@@ -149,9 +148,6 @@ st.markdown(
 with st.expander("**🤔 Why the AI Model Might Be Inaccurate?**"):
     st.markdown(
         """
-         <div style='
-        
-       '>
         Even the most advanced AI models can make incorrect predictions due to various limitations. Here are some common reasons:
         
         - 📸 **Poor Image Quality**: Blurry, low-resolution, or poorly lit images can reduce prediction accuracy.
@@ -162,7 +158,5 @@ with st.expander("**🤔 Why the AI Model Might Be Inaccurate?**"):
         - 📚 **Lack of Clinical Context**: The model cannot consider symptoms, history, or physical examinations like a human doctor would.
         
         Always treat AI predictions as supportive insights—not definitive answers.
-        </div>
-        """,
-        unsafe_allow_html=True
+        """
     )
