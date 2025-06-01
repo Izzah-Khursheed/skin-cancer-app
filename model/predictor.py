@@ -1,4 +1,4 @@
-from transformers import AutoProcessor, AutoModelForImageClassification
+from transformers import AutoImageProcessor, BeitForImageClassification
 from PIL import Image
 import torch
 
