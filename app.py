@@ -105,7 +105,7 @@ with tabs[1]:
 
 # Tab 3: Visualization
 with tabs[2]:
-    st.header("🔬 Prediction Breakdown")
+    st.header("📊 Prediction Breakdown")
     if 'last_confidences' in st.session_state:
         display_prediction_charts(st.session_state['last_confidences'])
         display_risk_graph(st.session_state['last_risk'])
