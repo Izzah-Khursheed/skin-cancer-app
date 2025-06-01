@@ -40,7 +40,7 @@ def display_risk_graph(risk):
 import plotly.graph_objects as go
 import random 
 
-def model_accuracy_sidebar():
+def model_accuracy_sidebar(force_update=False):
     with st.sidebar:
         st.markdown("### 🧠 Model Overview")
 
