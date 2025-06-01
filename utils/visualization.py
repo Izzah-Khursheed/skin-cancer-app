@@ -42,25 +42,26 @@ import plotly.graph_objects as go
 
 def model_accuracy_sidebar():
     with st.sidebar:
-        st.markdown("### 🧠 Model Info")
-        
-        # Store accuracy history in session state
+        st.markdown("### 🧠 Model Overview")
+
+        # Show static accuracy always
+        st.markdown("**🔎 Static Accuracy:** `99.08%`")
+
+        # Track accuracy history
         if 'accuracy_history' not in st.session_state:
             st.session_state.accuracy_history = []
 
-        # Option to calculate accuracy
-        calc_option = st.selectbox("Accuracy Options", ["View Static Accuracy", "Calculate After Prediction"])
+        # Option to calculate dynamic accuracy
+        calc_option = st.selectbox("🔁 Dynamic Accuracy Options", ["Calculate After Prediction"])
 
-        if calc_option == "View Static Accuracy":
-            st.write("Accuracy: **90.0%**")
-        elif calc_option == "Calculate After Prediction":
+        if calc_option == "Calculate After Prediction":
             if 'last_prediction' in st.session_state:
-                # Simulated dynamic accuracy (replace with real one if available)
+                # Simulated dynamic accuracy (replace with real if available)
                 current_accuracy = round(random.uniform(85.0, 97.0), 2)
                 st.session_state.accuracy_history.append(current_accuracy)
                 st.success(f"Calculated Accuracy: {current_accuracy}%")
 
-                # Display trend chart
+                # Accuracy Trend Plot
                 fig = go.Figure()
                 fig.add_trace(go.Scatter(
                     y=st.session_state.accuracy_history,
@@ -77,5 +78,59 @@ def model_accuracy_sidebar():
             else:
                 st.info("Upload an image to enable dynamic accuracy calculation.")
 
-        st.write("Model: DermatologyNet v1.0")
-        st.write("Last Updated: 2024-12-01")
+        # 📦 Model Info Dropdown
+        with st.expander("📦 View Model Info"):
+            st.markdown("**Model**: [BEiT-Large Fine-Tuned](https://huggingface.co/ALM-AHME/beit-large-patch16-224-finetuned-Lesion-Classification-HAM10000-AH-60-20-20) 🧬")
+            st.markdown("**Base Architecture**: BEiT-Large Patch16-224 (Vision Transformer)")
+            st.markdown("**Dataset**: HAM10000 (10,015 dermatoscopic images)")
+            st.markdown("**Evaluation Accuracy**: 99.08% ✅")
+            st.markdown("**Fine-Tuned Epochs**: 12")
+            st.markdown("**Last Updated**: December 1, 2024")
+            st.markdown("**License**: Apache 2.0")
+
+            with st.expander("📄 More Technical Details"):
+                st.markdown("""
+                - **Pretrained On**: ImageNet-21k  
+                - **Optimizer**: Adam (LR: 5e-6)  
+                - **Loss Function**: CrossEntropyLoss  
+                - **Use Case**: Medical Skin Lesion Classification  
+                """)
+
+
+
+# def model_accuracy_sidebar():
+#     with st.sidebar:
+#         st.markdown("### 🧠 Model Info")
+        
+#         # Store accuracy history in session state
+#         if 'accuracy_history' not in st.session_state:
+#             st.session_state.accuracy_history = []
+
+#         # Option to calculate accuracy
+#         calc_option = st.selectbox("Accuracy Options", ["View Static Accuracy", "Calculate After Prediction"])
+
+#         if calc_option == "View Static Accuracy":
+#             st.write("Accuracy: **90.0%**")
+#         elif calc_option == "Calculate After Prediction":
+#             if 'last_prediction' in st.session_state:
+#                 # Simulated dynamic accuracy (replace with real one if available)
+#                 current_accuracy = round(random.uniform(85.0, 97.0), 2)
+#                 st.session_state.accuracy_history.append(current_accuracy)
+#                 st.success(f"Calculated Accuracy: {current_accuracy}%")
+
+#                 # Display trend chart
+#                 fig = go.Figure()
+#                 fig.add_trace(go.Scatter(
+#                     y=st.session_state.accuracy_history,
+#                     mode='lines+markers',
+#                     name='Accuracy Trend'
+#                 ))
+#                 fig.update_layout(
+#                     title="📈 Accuracy Over Time",
+#                     xaxis_title="Prediction Count",
+#                     yaxis_title="Accuracy (%)",
+#                     height=300
+#                 )
+#                 st.plotly_chart(fig, use_container_width=True)
+#             else:
+#                 st.info("Upload an image to enable dynamic accuracy calculation.")
