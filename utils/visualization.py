@@ -44,46 +44,37 @@ def model_accuracy_sidebar():
     with st.sidebar:
         st.markdown("### 🧠 Model Overview")
 
-        # Static Accuracy Info
         st.markdown("**🔎 Model Accuracy:** `90.00%`")
 
-        # Initialize state variables
+        # Initialize session state
         if 'prediction_results' not in st.session_state:
-            st.session_state.prediction_results = []  # Stores 1 (correct) or 0 (incorrect)
+            st.session_state.prediction_results = []
         if 'accuracy_trend' not in st.session_state:
-            st.session_state.accuracy_trend = []  # Stores computed accuracy over time
+            st.session_state.accuracy_trend = []
 
-        st.markdown("**🔁 Dynamic Accuracy Option:** `Calculate After Prediction`")
+        st.markdown("**🔁 Dynamic Accuracy Option:**")
+        st.markdown("✔️ **Real-time Accuracy After Each Prediction**")
 
-        # Check if prediction happened
+        # Only proceed if prediction and ground truth are available
         if 'last_prediction' in st.session_state and 'ground_truth' in st.session_state:
-            # Get predicted and actual labels
-            predicted = st.session_state.last_prediction
-            actual = st.session_state.ground_truth
+            pred = st.session_state['last_prediction']
+            actual = st.session_state['ground_truth']
+            is_correct = pred == actual
+            st.session_state.prediction_results.append(is_correct)
 
-            # Check correctness
-            correct = int(predicted == actual)
-            st.session_state.prediction_results.append(correct)
-
-            # Calculate cumulative accuracy
-            accuracy = round(
-                sum(st.session_state.prediction_results) / len(st.session_state.prediction_results) * 100,
-                2
-            )
+            accuracy = round((sum(st.session_state.prediction_results) / len(st.session_state.prediction_results)) * 100, 2)
             st.session_state.accuracy_trend.append(accuracy)
 
-            # Display current accuracy
-            st.success(f"Current Accuracy: **{accuracy}%**")
+            st.success(f"✅ Real-Time Accuracy: {accuracy}%")
 
-            # Plot trend chart
             fig = go.Figure()
             fig.add_trace(go.Scatter(
                 y=st.session_state.accuracy_trend,
                 mode='lines+markers',
-                name='Accuracy Trend'
+                name='Accuracy Over Time'
             ))
             fig.update_layout(
-                title="📈 Accuracy Over Time",
+                title="📈 Accuracy Trend",
                 xaxis_title="Prediction Count",
                 yaxis_title="Accuracy (%)",
                 height=300
