@@ -20,19 +20,16 @@ st.set_page_config(page_title="Skin Cancer AI", page_icon="favicon.png", layout=
 st.sidebar.title("🤖 AI Skin Cancer Assistant")
 # model_accuracy_sidebar()
 
-
 st.markdown(
     """
     <style>
         .block-container {
-            padding-bottom: 0.5rem;
+            padding-bottom: 1 rem;
         }
     </style>
     """,
     unsafe_allow_html=True
 )
-
-
 
 st.title("🧬 AI-Powered Skin Cancer Detection & Help Desk")
 
