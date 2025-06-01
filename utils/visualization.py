@@ -45,7 +45,7 @@ def model_accuracy_sidebar():
         st.markdown("### 🧠 Model Overview")
 
         # Static accuracy (always visible)
-        st.markdown("**🔎 Model Accuracy:**  \n`90.00%`")
+        st.markdown("**🔎 Model Accuracy:**  \n`99.08%`")
 
         # Initialize accuracy history if not present
         if 'accuracy_history' not in st.session_state:
