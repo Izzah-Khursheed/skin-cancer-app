@@ -52,7 +52,7 @@ def model_accuracy_sidebar():
         calc_option = st.selectbox("Accuracy Options", ["View Static Accuracy", "Calculate After Prediction"])
 
         if calc_option == "View Static Accuracy":
-            st.write("Accuracy: **93.5%**")
+            st.write("Accuracy: **90.0%**")
         elif calc_option == "Calculate After Prediction":
             if 'last_prediction' in st.session_state:
                 # Simulated dynamic accuracy (replace with real one if available)
