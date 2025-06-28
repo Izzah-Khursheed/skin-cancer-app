@@ -73,3 +73,30 @@ The app consists of **four main interactive tabs**:
 
 ---
 
+## 🛠️ Setup & Installation
+
+### ✅ Requirements
+
+Make sure you have Python 3.9+ and the following packages installed:
+
+- `streamlit`
+- `transformers`
+- `matplotlib`, `seaborn`
+- `PIL` (`pillow`)
+- `torch`
+- `numpy`
+- `pandas`
+- **Groq API key** (required for chatbot tab)
+
+### 🔧 Installation Steps
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/your-username/skin-cancer-app.git
+cd skin-cancer-app
+
+# 2. Install required libraries
+pip install -r requirements.txt
+
+# 3. Run the Streamlit app
+streamlit run app.py
